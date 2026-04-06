@@ -1,0 +1,21 @@
+# Credentials
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data (fetched per-user from Jira)
+data/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Models (large binary files)
+models/

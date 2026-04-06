@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Project Manager</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <h1><span>MCP</span> Project Manager</h1>
+      <div class="header-right">
+        <span class="backend-badge" id="backend-badge">detecting...</span>
+      </div>
+    </header>
+
+    <!-- Project selector + sync -->
+    <div class="project-bar">
+      <label for="project-select">Project</label>
+      <select id="project-select"></select>
+      <button class="btn btn-ghost" id="sync-btn">Sync Jira</button>
+    </div>
+
+    <!-- Dashboard cards -->
+    <div id="dash-content">
+      <div class="loading"><div class="spinner"></div><div>Loading...</div></div>
+    </div>
+
+    <!-- Detail panels -->
+    <div id="panels-content"></div>
+
+    <!-- Chat -->
+    <div class="chat-section">
+      <div class="chat-header">
+        <h3>Ask the MCP Pipeline</h3>
+        <div class="quick-questions">
+          <button class="quick-btn" data-q="Give me a full project overview">Overview</button>
+          <button class="quick-btn" data-q="When will this project be completed?">Timeline</button>
+          <button class="quick-btn" data-q="What are the main risks?">Risks</button>
+          <button class="quick-btn" data-q="Are there any blocked tasks?">Blockers</button>
+          <button class="quick-btn" data-q="Who is overloaded on the team?">Team Load</button>
+        </div>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <form class="chat-input" id="chat-form" autocomplete="off">
+        <input type="text" id="chat-input" placeholder="Ask a question about this project..." />
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

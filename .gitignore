@@ -11,6 +11,9 @@ venv/
 # Data (fetched per-user from Jira)
 data/*.json
 
+# Azure Configuration
+.azure/
+
 # IDE
 .vscode/
 .idea/
@@ -19,3 +22,9 @@ data/*.json
 
 # Models (large binary files)
 models/
+
+# Zipped Deployment Files
+app.zip
+
+# Terraform
+terraform/terraform.tfvars

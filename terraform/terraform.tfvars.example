@@ -1,0 +1,14 @@
+resource_group_name = "mcp-rg"
+location            = "centralus"
+app_name            = "mcpprojectmanager"
+
+app_settings = {
+  ATLASSIAN_DOMAIN       = "YOUR_DOMAIN_TOKEN_HERE"   # Replace with actual domain
+  ATLASSIAN_EMAIL        = "YOUR_EMAIL_HERE"          # Replace with actual email
+  ATLASSIAN_API_TOKEN    = "YOUR_API_TOKEN_HERE"      # Replace with actual token
+  JIRA_PROJECT_KEY       = "YOUR_PROJECT_KEY_HERE"    # Replace with actual project key
+  JIRA_DEADLINE          = "2026-06-30"
+  JIRA_HOURS_PER_WEEK    = "40"
+  # JIRA_PROJECT_KEYS    = "YOUR_PROJECT_KEYS_HERE"   # Replace with actual project keys
+  # ANTHROPIC_API_KEY    = "sk-ant-your-key-here"     # Replace with actual anthropic key
+}

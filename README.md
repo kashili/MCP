@@ -89,13 +89,12 @@ To create the app from scratch (i.e. the resources do not already exist on Azure
 5. Navigate back to the root directory:
    `cd .. `
 6. Create a Zip file of the root directory:
-
-   Windows:
-   `Compress-Archive -Path (Get-ChildItem -Exclude terraform, .git, .terraform, .venv, __pycache__, *.pyc).FullName -DestinationPath app.zip -Force 
-   `
-   Unix:
-   `zip -r app.zip . 
-   `
+   1. Windows:
+      `Compress-Archive -Path (Get-ChildItem -Exclude terraform, .git, .terraform, .venv, __pycache__, *.pyc).FullName -DestinationPath app.zip -Force 
+      `
+   2. Unix:
+      `zip -r app.zip . 
+      `
 7. Deploy the app (zip file) to Azure Web Apps:
    `az webapp deploy --resource-group mcp-rg --name mcpprojectmanager --src-path app.zip --type zip `
 8. Visit the app at: [https://mcpprojectmanager.azurewebsites.net]()
@@ -107,7 +106,7 @@ To tear-down the app, and assoicated resources created by the above:
 
 ### Troubleshooting
 
-1. If the above deployment command errors-out or times-out, use the following command as a fallback:
+1. If the above deployment command **errors-out** or **times-out**, use the following command as a fallback:
    `az webapp up --name mcpprojectmanager --resource-group mcp-rg --plan mcpprojectmanager-plan`
 
    The `az webapp up` will likely continue to say `Starting the site...` for multiple minutes, when in-reality, the app has already started.

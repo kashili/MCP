@@ -26,11 +26,20 @@ This README will guide you through the various steps to execute terraform script
 2. Follow all on-screen instructions for your specific OS.
 3. After installation, enter `az help` to confirm if the Azure CLI was installed correctly.
 
-## Set secrets inside `terraform.tfvars`
+## Set secrets inside `terraform.tfvars` and `.env`
+
+### `.env`
+
+1. Navigate to the root directory.
+2. Create a copy of the `.env.example` file, name this copy `.env`.
+3. Populate `.env` with the approriate secret values.
+
+### `terraform.tfvars`
 
 1. Navigate to the `terraform` directory.
 2. Create a copy of the `terraform.tfvars.example` file, name this copy `terraform.tfvars`.
 3. Edit the dummy variables with actual values:
+
    1. Atlassian Domain
    2. Atlassian Email
    3. Atlassian API Token
@@ -70,31 +79,25 @@ If you want to test app deployment **WITHOUT** terraform, use the following comm
 To create the app from scratch (i.e. the resources do not already exist on Azure):
 
 1. Navigate to the terraform directory:
-   `cd terraform
-   `
+   `cd terraform `
 2. Initialize the terraform service:
-   `terraform init
-   `
+   `terraform init `
 3. Preview resource creation:
-   `terraform plan
-   `
+   `terraform plan `
 4. Create resources (without additional user confirmation):
-   `terraform apply -auto-approve
-   `
+   `terraform apply -auto-approve `
 5. Navigate back to the root directory:
-   `cd ..
-   `
+   `cd .. `
 6. Create a Zip file of the root directory:
 
    Windows:
-   `Compress-Archive -Path (Get-ChildItem -Exclude terraform, .git, .terraform, .venv, __pycache__, *.pyc).FullName -DestinationPath app.zip -Force
+   `Compress-Archive -Path (Get-ChildItem -Exclude terraform, .git, .terraform, .venv, __pycache__, *.pyc).FullName -DestinationPath app.zip -Force 
    `
    Unix:
-   `zip -r app.zip .
+   `zip -r app.zip . 
    `
 7. Deploy the app (zip file) to Azure Web Apps:
-   `az webapp deploy --resource-group mcp-rg --name mcpprojectmanager --src-path app.zip --type zip
-   `
+   `az webapp deploy --resource-group mcp-rg --name mcpprojectmanager --src-path app.zip --type zip `
 8. Visit the app at: [https://mcpprojectmanager.azurewebsites.net]()
 
 ### Teardown
